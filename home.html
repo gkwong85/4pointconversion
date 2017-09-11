@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div>
+        <h1>4 point conversion scale</h1>
+        <input id="correct" type="text" placeholder="How many correct">
+        <input id="outOf" type="text" placeholder="Out of #">
+        <button id="convert">Convert</button>
+    </div>
+    <div>
+        <br>
+        <br>
+        <label>Score</label>
+        <input id="answer" type="text">
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function (){
+            $("#convert").on("click", calculateHandler);
+
+            function doThis(num, scale){
+                var x = num / scale * 100;
+                var y = (x / 20) - 1;
+                return y;
+            }
+
+            function calculateHandler(){
+                var a = $("#correct").val();
+                var b = $("#outOf").val();
+                var c = doThis(a, b);
+
+                $("#answer").val(c);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
